@@ -6,9 +6,12 @@ const pool = require("./config/db");
 
 const app = express();
 
+const queryRoutes = require("./routes/queryRoutes");
+
+
 app.use(cors());
 app.use(express.json());
-
+app.use("/api", queryRoutes);
 app.get("/", (req, res) => {
   res.send("AI Data Analyst Backend Running");
 });
